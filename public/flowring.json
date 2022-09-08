@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "6287275c1ff30bca59637b26",
+    "index": 0,
+    "quantity": 21,
+    "picture": "https://i.ibb.co/ZYVZkzy/image.jpg",
+    "price": 419,
+    "name": "হাজারি গোলাপ",
+    "description": "+1 (848) 454-3275"
+  },
+  {
+    "_id": "https://i.ibb.co/CQ2ZDDn/image.jpg",
+    "index": 1,
+    "quantity": 20,
+    "picture": "http://placehold.it/32x32",
+    "price": 262,
+    "name": "হলুদ গোলাপ",
+    "description": "+1 (886) 480-2928"
+  },
+  {
+    "_id": "6287275c4d11857430f7790c",
+    "index": 2,
+    "quantity": 99,
+    "picture": "https://i.ibb.co/R49mJBx/image.jpg",
+    "price": 238,
+    "name": "সুর্য মুখি",
+    "description": "+1 (837) 416-3866"
+  },
+  {
+    "_id": "6287275c425064a3b0ec1a71",
+    "index": 3,
+    "quantity": 98,
+    "picture": "https://i.ibb.co/N2gRKf7/image.jpg",
+    "price": 185,
+    "name": "সাদা গোলাপ",
+    "description": "+1 (953) 598-3389"
+  },
+  {
+    "_id": "6287275c95204cca0ac57467",
+    "index": 4,
+    "quantity": 29,
+    "picture": "https://i.ibb.co/3cmKGWG/image.jpg",
+    "price": 392,
+    "name": "লাল গোলাপ",
+    "description": "+1 (873) 553-2321"
+  },
+  {
+    "_id": "6287275c17573d541ee5f221",
+    "index": 5,
+    "quantity": 26,
+    "picture": "https://i.ibb.co/V9r86Cz/image.jpg",
+    "price": 163,
+    "name": "রজনিগন্ধা",
+    "description": "+1 (941) 453-3195"
+  },
+  {
+    "_id": "6287275c6edc18f20cb1d2a0",
+    "index": 6,
+    "quantity": 21,
+    "picture": "https://i.ibb.co/kSpj9KT/image.jpg",
+    "price": 454,
+    "name": "বেলি",
+    "description": "+1 (986) 540-3829"
+  },
+  {
+    "_id": "6287275ce2e25424bc3c6a13",
+    "index": 7,
+    "quantity": 22,
+    "picture": "https://i.ibb.co/p44TBcG/image.jpg",
+    "price": 230,
+    "name": "কচমচ",
+    "description": "+1 (929) 542-2329"
+  },
+  {
+    "_id": "6287275cf914412f9cbdbc4f",
+    "index": 8,
+    "quantity": 76,
+    "picture": "https://i.ibb.co/v1t3ynq/image.jpg",
+    "price": 444,
+    "name": "কালো গোলাপ",
+    "description": "+1 (874) 546-2233"
+  },
+  {
+    "_id": "6287275c15d236ddb343ce70",
+    "index": 9,
+    "quantity": 20,
+    "picture": "https://i.ibb.co/r5ZcTKx/image.jpg",
+    "price": 357,
+    "name": "কামিনী",
+    "description": "+1 (841) 527-3694"
+  }
+]
