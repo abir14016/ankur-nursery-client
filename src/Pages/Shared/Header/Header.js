@@ -1,7 +1,14 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const handleLogOut = () => {
+        signOut(auth);
+    }
     const menuItems = <>
         <li><Link to="/">হোম</Link></li>
         <li><Link to="/order">অর্ডার করুন</Link></li>
@@ -10,7 +17,15 @@ const Header = () => {
         <li><Link to="/floweringplants">ফুলগাছ</Link></li>
         <li><Link to="/fruitseedlings">ফলগাছ</Link></li>
         <li><Link to="/medicinalplants">ঔষধী গাছ</Link></li>
-        <li><Link to="/login">লগইন করুন</Link></li>
+        {
+            !user ? <li><Link className="btn btn-outline btn-primary" to="/login">লগইন করুন</Link></li> : <button
+                onClick={handleLogOut}
+                className="btn btn-outline btn-primary">
+                লগআউট করুন
+            </button>
+        }
+
+
     </>
     return (
         <div className="navbar bg-base-200">
