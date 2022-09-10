@@ -20,9 +20,31 @@ const Header = () => {
         {
             !user ? <li><Link className="btn btn-outline btn-primary" to="/login">লগইন করুন</Link></li> : <button
                 onClick={handleLogOut}
-                className="btn btn-outline btn-primary">
+                className="btn btn-outline btn-primary mr-2">
                 লগআউট করুন
             </button>
+        }
+
+        {
+            user && <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle">
+                    <div class="avatar online placeholder">
+                        <div class="bg-neutral-focus text-neutral-content rounded-full w-12">
+                            <span class="text-xl">JO</span>
+                        </div>
+                    </div>
+                </label>
+                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                    <li>
+                        <a className="justify-between">
+                            Profile
+                            <span className="badge">New</span>
+                        </a>
+                    </li>
+                    <li><a>Settings</a></li>
+                    <li><a>Logout</a></li>
+                </ul>
+            </div>
         }
 
 
@@ -73,3 +95,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+

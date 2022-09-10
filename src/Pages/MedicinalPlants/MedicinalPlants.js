@@ -6,7 +6,7 @@ import MedicinalPlant from '../MedicinalPlant/MedicinalPlant';
 const MedicinalPlants = () => {
     const [medicinalPlants, setMecinalPlants] = useState([]);
     useEffect(() => {
-        fetch('medicinal.json')
+        fetch('http://localhost:5000/medicinal')
             .then(res => res.json())
             .then(data => setMecinalPlants(data))
     }, [])
