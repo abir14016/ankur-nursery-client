@@ -14,6 +14,7 @@ import MedicinalPlants from './Pages/MedicinalPlants/MedicinalPlants';
 import MyOrders from './Pages/MyOrders/MyOrders';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import SingleMedicinalPlant from './Pages/SingleMedicinalPlant/SingleMedicinalPlant';
+import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
         <Route path='/fruitseedlings' element={<FruitSeedlings></FruitSeedlings>}></Route>
         <Route path='/flowers' element={<Flowers></Flowers>}></Route>
         <Route path='/medicinalplants' element={<MedicinalPlants></MedicinalPlants>}></Route>
-        <Route path='/medicinal/:id' element={<SingleMedicinalPlant></SingleMedicinalPlant>}></Route>
+        <Route path='/medicinal/:id' element={<RequireAuth>
+          <SingleMedicinalPlant></SingleMedicinalPlant>
+        </RequireAuth>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/order' element={<Order></Order>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

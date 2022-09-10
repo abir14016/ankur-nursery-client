@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import googleLogo from '../../../src/images/social/google-logo.png';
@@ -18,8 +18,12 @@ const Login = () => {
         eError,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     if (gUser || fUser || eUser) {
-        console.log(gUser || fUser || eUser);
+        navigate(from, { replace: true });
     }
 
     const { register, formState: { errors }, handleSubmit } = useForm();
