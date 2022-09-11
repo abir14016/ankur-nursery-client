@@ -15,6 +15,7 @@ import MyOrders from './Pages/MyOrders/MyOrders';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import SingleMedicinalPlant from './Pages/SingleMedicinalPlant/SingleMedicinalPlant';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
+import CheckOut from './Pages/CheckOut/CheckOut';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path='/order' element={<Order></Order>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/checkout' element={<CheckOut></CheckOut>}></Route>
         <Route path='/myorders' element={<MyOrders></MyOrders>}></Route>
       </Routes>
       <Footer></Footer>
