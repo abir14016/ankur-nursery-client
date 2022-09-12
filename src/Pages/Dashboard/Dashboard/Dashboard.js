@@ -7,7 +7,7 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     return (
         <div className="drawer drawer-mobile">
-            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* <!-- Page content here --> */}
                 <h4 className='text-primary font-bold'>{user.displayName},</h4>
@@ -16,7 +16,7 @@ const Dashboard = () => {
 
             </div>
             <div className="drawer-side">
-                <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard'>My Orders</Link></li>

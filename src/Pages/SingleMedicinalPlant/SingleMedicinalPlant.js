@@ -23,6 +23,8 @@ const SingleMedicinalPlant = () => {
         data.userName = user.displayName;
         data.email = user.email;
         data.productName = medicinalPlant.name;
+        data.subTotal = parseInt(data.quantity) * parseInt(medicinalPlant.price);
+        data.price = medicinalPlant.price
         const url = `http://localhost:5000/medicinal/${id}`;
         fetch(url, {
             method: "PUT",
@@ -46,7 +48,9 @@ const SingleMedicinalPlant = () => {
             productName: data.productName,
             quantity: data.quantity,
             phone: data.phone,
-            address: data.address
+            address: data.address,
+            subTotal: data.subTotal,
+            price: data.price
         }
 
         fetch('http://localhost:5000/order', {
