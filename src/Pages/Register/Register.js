@@ -1,9 +1,10 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [
@@ -12,12 +13,35 @@ const Register = () => {
         eLoading,
         eError,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
     if (eUser) {
-        console.log(eUser)
+        const currentUser = {
+            email: user?.email,
+        }
+        const url = `http://localhost:5000/user/${user?.email}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    reset();
+                    // toast.success("regestration successfull");
+                }
+
+            })
+        navigate('/');
     }
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => {
-        createUserWithEmailAndPassword(data.email, data.password);
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [updateProfile] = useUpdateProfile(auth);
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
     }
     return (
         <div>

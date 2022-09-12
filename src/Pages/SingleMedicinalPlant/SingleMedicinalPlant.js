@@ -49,9 +49,6 @@ const SingleMedicinalPlant = () => {
                         <p className='text-xs font-semibold text-teal-600'>অবশিষ্ট আছে: {medicinalPlant.quantity} পিস</p>
                         <p className='text-xs font-semibold text-red-600'>মূল্য: {medicinalPlant.price} (প্রতি পিস)</p>
                     </div>
-                    {/* <div className="card-actions justify-end">
-                        <button onClick={handleCheckOut} className="btn btn-primary">Proceed Checout</button>
-                    </div> */}
                 </div>
             </div>
 

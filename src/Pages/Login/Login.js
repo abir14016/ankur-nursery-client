@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import googleLogo from '../../../src/images/social/google-logo.png';
 import facebookLogo from '../../../src/images/social/facebook-logo.png';
@@ -18,15 +18,41 @@ const Login = () => {
         eError,
     ] = useSignInWithEmailAndPassword(auth);
 
+    // const [user] = useAuthState(auth);
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
     if (gUser || fUser || eUser) {
         navigate(from, { replace: true });
+        const email = gUser?.user?.email || fUser?.user?.email || eUser?.user?.email
+        console.log((email));
+
+        const currentUser = {
+            email: email,
+        }
+
+        const url = `http://localhost:5000/user/${email}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    reset();
+                }
+
+            })
+
+
     }
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
     }
