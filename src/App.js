@@ -16,6 +16,7 @@ import AllProducts from './Pages/AllProducts/AllProducts';
 import SingleMedicinalPlant from './Pages/SingleMedicinalPlant/SingleMedicinalPlant';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import CheckOut from './Pages/CheckOut/CheckOut';
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path='/myorders' element={<MyOrders></MyOrders>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const SingleMedicinalPlant = () => {
     const [user] = useAuthState(auth);
@@ -16,15 +17,26 @@ const SingleMedicinalPlant = () => {
             .then(data => setMedicinalPlant(data))
     }, [id]);
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data);
-    }
+        data.quantity = medicinalPlant.quantity - data.quantity;
+        const url = `http://localhost:5000/medicinal/${id}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    reset();
+                    toast.success("Order Successfull");
+                }
 
-    const navigate = useNavigate();
-    // const handleCheckOut = () => {
-    //     navigate('/checkout');
-    // }
+            })
+    }
 
     return (
         <div className='mt-16'>
@@ -167,7 +179,6 @@ const SingleMedicinalPlant = () => {
                         <div class="form-control mt-6">
                             <button
                                 type='submit'
-                                // onClick={() => createUserWithEmailAndPassword()}
                                 class="btn btn-primary">
                                 অর্ডার করুণ
                             </button>
