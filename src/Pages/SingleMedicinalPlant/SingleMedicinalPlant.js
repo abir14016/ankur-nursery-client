@@ -19,7 +19,10 @@ const SingleMedicinalPlant = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        data.quantity = medicinalPlant.quantity - data.quantity;
+        data.updatedQuantity = medicinalPlant.quantity - data.quantity;
+        data.userName = user.displayName;
+        data.email = user.email;
+        data.productName = medicinalPlant.name;
         const url = `http://localhost:5000/medicinal/${id}`;
         fetch(url, {
             method: "PUT",
@@ -35,7 +38,32 @@ const SingleMedicinalPlant = () => {
                     toast.success("Order Successfull");
                 }
 
-            })
+            });
+
+        const order = {
+            email: data.email,
+            userName: data.userName,
+            productName: data.productName,
+            quantity: data.quantity,
+            phone: data.phone,
+            address: data.address
+        }
+
+        fetch('http://localhost:5000/order', {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    reset();
+                    // toast.success("Order Successfull");
+                }
+
+            });
     }
 
     return (
