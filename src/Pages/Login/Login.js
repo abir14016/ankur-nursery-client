@@ -27,10 +27,13 @@ const Login = () => {
     if (gUser || fUser || eUser) {
         navigate(from, { replace: true });
         const email = gUser?.user?.email || fUser?.user?.email || eUser?.user?.email
-        console.log((email));
+        const name = gUser?.user?.displayName || fUser?.user?.displayName || eUser?.user?.displayName
+        const image = gUser?.user?.photoURL || fUser?.user?.photoURL || eUser?.user?.photoURL
 
         const currentUser = {
             email: email,
+            name: name,
+            image: image
         }
 
         const url = `http://localhost:5000/user/${email}`;

@@ -21,27 +21,31 @@ const MyOrders = () => {
     }
     return (
         <div>
-            <h2>Your orders here</h2>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th className='text-primary'>Name</th>
-                            <th className='text-primary'>Quantity</th>
-                            <th className='text-primary'>Sub Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            orders.map(order => <MyOrder
-                                key={order._id}
-                                order={order}
-                            ></MyOrder>)
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <h2 className='text-purple-700 font-bold'>Total amount to pay: <span className='font-bold text-rose-600'>{b}</span></h2>
+            {
+                orders.length ? <div>
+                    <h2 className='mt-5 text-bold text-blue-600 font-bold'>Your orders history</h2>
+                    <div className="overflow-x-auto">
+                        <table className="table w-full">
+                            <thead>
+                                <tr>
+                                    <th className='text-primary'>Name</th>
+                                    <th className='text-primary'>Quantity</th>
+                                    <th className='text-primary'>Sub Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    orders.map(order => <MyOrder
+                                        key={order._id}
+                                        order={order}
+                                    ></MyOrder>)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2 className='text-purple-700 font-bold'>Total amount to pay: <span className='font-bold text-rose-600'>{b}</span></h2>
+                </div> : <h2 className='text-4xl text-red-400 font-bolder mt-5'>You did not order any product</h2>
+            }
         </div>
     );
 };

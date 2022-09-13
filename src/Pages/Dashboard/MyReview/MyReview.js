@@ -10,7 +10,6 @@ const MyReview = () => {
     const onSubmit = data => {
         data.email = user.email;
         data.userName = user.displayName;
-        console.log(data);
         const url = `http://localhost:5000/review/${user?.email}`;
         fetch(url, {
             method: "PUT",
@@ -30,8 +29,8 @@ const MyReview = () => {
     }
     return (
         <div>
-            <h4>Update your review</h4>
-            <div className='mt-5'>
+            <h4 className='mt-5 text-bold text-blue-600 font-bold'>Upload your review</h4>
+            <div>
                 <div class="border border-primary rounded-md w-full max-w-lg shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} class="card-body">
                         <div class="form-control">

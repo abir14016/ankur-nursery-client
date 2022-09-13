@@ -20,6 +20,9 @@ import { ToastContainer } from "react-toastify";
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import MyReview from './Pages/Dashboard/MyReview/MyReview';
+import AllOrders from './Pages/Dashboard/AllOrders/AllOrders';
+import Products from './Pages/Dashboard/Products/Products';
+import Users from './Pages/Dashboard/Users/Users';
 
 function App() {
   return (
@@ -46,6 +49,9 @@ function App() {
         </RequireAuth>}>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
+          <Route path='allorders' element={<AllOrders></AllOrders>}></Route>
+          <Route path='allproducts' element={<Products></Products>}></Route>
+          <Route path='allusers' element={<Users></Users>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>
