@@ -34,7 +34,7 @@ const Register = () => {
                     // toast.success("regestration successfull");
                 }
 
-            })
+            });
         navigate('/');
     }
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
