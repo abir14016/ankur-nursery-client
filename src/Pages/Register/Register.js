@@ -37,7 +37,7 @@ const Register = () => {
             });
         setTimeout(() => {
             navigate('/');
-        }, 1000)
+        }, 2000)
     }
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [updateProfile, updating] = useUpdateProfile(auth);

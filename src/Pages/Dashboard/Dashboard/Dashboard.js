@@ -24,7 +24,16 @@ const Dashboard = () => {
 
                     <li><Link className='text-blue-700 font-semibold' to='/dashboard/allusers'>Users</Link></li>
                     <li><Link className='text-blue-700 font-semibold' to='/dashboard/allorders'>Orders</Link></li>
-                    <li><Link className='text-blue-700 font-semibold' to='/dashboard/allproducts'>Products</Link></li>
+                    {/* <li><Link className='text-blue-700 font-semibold' to='/dashboard/allproducts'>Products</Link></li> */}
+                    <li>
+                        <div className="dropdown dropdown-bottom">
+                            <label tabIndex={0} className="text-blue-700 font-semibold">Manage Products</label>
+                            <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                                <li><a>Item 1</a></li>
+                                <li><a>Item 2</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
 
             </div>

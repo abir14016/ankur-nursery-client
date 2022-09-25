@@ -1,7 +1,24 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const User = ({ user }) => {
-    const { image, name, email, role } = user
+const User = ({ user, refetch }) => {
+    const { image, name, email, role } = user;
+    const url = `http://localhost:5000/user/admin/${email}`
+    const makeAdmin = () => {
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                // 'content-type': 'application/json'
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                refetch();
+                toast.success("successfully made an admin");
+
+            });
+    }
     return (
         <tr>
             <td>
@@ -14,7 +31,7 @@ const User = ({ user }) => {
             <td>{name}</td>
             <td>{email}</td>
             {
-                !role ? <td><button className="btn btn-xs">Make Admin</button></td> : <td>{role}</td>
+                !role ? <td><button onClick={makeAdmin} className="btn btn-xs">Make Admin</button></td> : <td><button className="btn btn-success btn-xs">{role}</button></td>
             }
             <td>
                 <button className="btn btn-error btn-circle btn-outline">

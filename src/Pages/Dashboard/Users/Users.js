@@ -1,16 +1,18 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading/Loading';
 import User from '../User/User';
 
 const Users = () => {
-    const [users, setUsers] = useState([]);
     const url = 'http://localhost:5000/user';
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+    const { isLoading, refetch, data: users } = useQuery('repoData', () =>
+        fetch(url).then(res =>
+            res.json()
+        )
+    );
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h2 className='mt-5 text-bold text-blue-600 font-bold'>Manage all users</h2>
@@ -27,9 +29,10 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map(user => <User
+                            users?.map(user => <User
                                 key={user._id}
                                 user={user}
+                                refetch={refetch}
                             ></User>)
                         }
                     </tbody>
