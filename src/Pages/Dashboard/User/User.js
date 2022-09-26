@@ -13,7 +13,6 @@ const User = ({ user, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 refetch();
                 toast.success("successfully made an admin");
 

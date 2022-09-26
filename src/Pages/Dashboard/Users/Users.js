@@ -24,7 +24,7 @@ const Users = () => {
                             <th className='text-primary'>Name</th>
                             <th className='text-primary'>Email</th>
                             <th className='text-primary'>Role</th>
-                            <th className='text-primary'>Delete User</th>
+                            <th className='text-primary'>Remove User</th>
                         </tr>
                     </thead>
                     <tbody>
