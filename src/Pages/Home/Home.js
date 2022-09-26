@@ -3,6 +3,7 @@ import Banner from './Bnner/Banner';
 import CardGroup from './CardGroup/CardGroup';
 import CountDown from './CountDown/CountDown';
 import Phone from './Phone/Phone';
+import Reviews from './Reviews/Reviews';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <Reviews></Reviews>
             <CountDown></CountDown>
             {/* <Phone></Phone> */}
         </div>

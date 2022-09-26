@@ -10,6 +10,7 @@ const MyReview = () => {
     const onSubmit = data => {
         data.email = user.email;
         data.userName = user.displayName;
+        data.image = user.photoURL;
         const url = `http://localhost:5000/review/${user?.email}`;
         fetch(url, {
             method: "PUT",
