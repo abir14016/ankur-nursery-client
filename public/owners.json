@@ -1,0 +1,20 @@
+[
+  {
+    "picture": "https://i.ibb.co/pvTcYhp/sitab.jpg",
+    "name": "Sitab Uddin Al Azad",
+    "role": "Founder",
+    "email": "sitabUddin@gmail.com"
+  },
+  {
+    "picture": "https://i.ibb.co/P1Rpfrg/saad.jpg",
+    "name": "Saad Ahmed",
+    "role": "Maneging Director",
+    "email": "saadAhmed@gmail.com"
+  },
+  {
+    "picture": "https://i.ibb.co/gPBT6LK/sonia.webp",
+    "name": "Sonia Afrin",
+    "role": "Assistant Maneging Director",
+    "email": "soniaice663@gmail.com"
+  }
+]

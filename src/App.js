@@ -24,8 +24,13 @@ import AllOrders from './Pages/Dashboard/AllOrders/AllOrders';
 import Products from './Pages/Dashboard/Products/Products';
 import Users from './Pages/Dashboard/Users/Users';
 import RequireAdmin from './Pages/Shared/RequireAdmin/RequireAdmin';
+import UseAdmin from './hooks/useAdmin';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin] = UseAdmin(user);
   return (
     <div>
       <Header></Header>
@@ -48,7 +53,9 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth>
           <Dashboard></Dashboard>
         </RequireAuth>}>
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          {
+            !admin ? <Route index element={<MyOrders></MyOrders>}></Route> : <Route index element={<Users></Users>}></Route>
+          }
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
           <Route path='allorders' element={<RequireAdmin>
             <AllOrders></AllOrders>
@@ -56,9 +63,9 @@ function App() {
           <Route path='allproducts' element={<RequireAdmin>
             <Products></Products>
           </RequireAdmin>}></Route>
-          <Route path='allusers' element={<RequireAdmin>
+          {/* <Route path='allusers' element={<RequireAdmin>
             <Users></Users>
-          </RequireAdmin>}></Route>
+          </RequireAdmin>}></Route> */}
         </Route>
       </Routes>
       <Footer></Footer>

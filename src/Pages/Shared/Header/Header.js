@@ -11,7 +11,7 @@ const Header = () => {
     }
     const menuItems = <>
         <li><Link to="/">হোম</Link></li>
-        <li><Link to="/order">অর্ডার করুন</Link></li>
+        {/* <li><Link to="/order">অর্ডার করুন</Link></li> */}
         <li><Link to="/about">About</Link></li>
         <li><Link to="/flowers">ফুল</Link></li>
         <li><Link to="/floweringplants">ফুলগাছ</Link></li>
@@ -30,7 +30,9 @@ const Header = () => {
                 <label tabIndex={0} className="btn btn-ghost btn-circle">
                     <div class="avatar online placeholder">
                         <div class="bg-neutral-focus text-neutral-content rounded-full w-12">
-                            <span class="text-xl">JO</span>
+                            <span class="text-xl">
+                                {user?.displayName?.slice(0, 1)?.toUpperCase()}
+                            </span>
                         </div>
                     </div>
                 </label>

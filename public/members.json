@@ -1,0 +1,32 @@
+[
+  {
+    "picture": "https://i.ibb.co/5WRBqRP/faruq.png",
+    "name": "Faruq Hossain",
+    "role": "Manager"
+  },
+  {
+    "picture": "https://i.ibb.co/VjxG0FY/mokced.png",
+    "name": "Mokced Ali",
+    "role": "Acting Labour"
+  },
+  {
+    "picture": "https://i.ibb.co/GPfjh9Q/montu.png",
+    "name": "Montu Mia",
+    "role": "Labour"
+  },
+  {
+    "picture": "https://i.ibb.co/rbPkNLz/halim.png",
+    "name": "Halim Hossain",
+    "role": "Labour"
+  },
+  {
+    "picture": "https://i.ibb.co/jZ1NrB2/aiyub.png",
+    "name": "Aiyub Ali",
+    "role": "Labour"
+  },
+  {
+    "picture": "https://i.ibb.co/yWG1tbX/kashem.png",
+    "name": "Kashem Molla",
+    "role": "Labour"
+  }
+]

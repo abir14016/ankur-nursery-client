@@ -31,7 +31,7 @@ const Dashboard = () => {
                     }
 
                     {
-                        admin && <li><Link className='text-blue-700 font-semibold' to='/dashboard/allusers'>Users</Link></li>
+                        admin && <li><Link className='text-blue-700 font-semibold' to='/dashboard'>Users</Link></li>
                     }
                     {
                         admin && <li><Link className='text-blue-700 font-semibold' to='/dashboard/allorders'>Orders</Link></li>
